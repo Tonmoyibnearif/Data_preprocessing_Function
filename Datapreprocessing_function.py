@@ -8,7 +8,7 @@ import numpy as np
 #x= input ("Enter csv name")
     def CSV_preprocessing(model):
          df = pd.read_csv(model)
-         tom = pd.date_range('2015-07-03', periods=16920, freq='H')
+         tom = pd.date_range('2015-07-03', periods=11856, freq='H')
          df['Date'] = [d.date() for d in tom]
          tumi = df['Date']
          tumi = pd.Series(pd.to_datetime(tumi))
@@ -132,14 +132,15 @@ import numpy as np
          df.drop('Dayofmonth', axis=1, inplace=True)
         # dropping the Forecasting Time column from dataframe
          df.drop('ForecastingTime', axis=1, inplace=True)
-        #saving the file in csv
-    #https://www.youtube.com/watch?v=-0NwrcZOKhQ
-         df.to_csv('DATA_WIth_DATE_data_Prtc_one.csv',index=False)
-         # implementing ANN
-         # spliting data into x-independent and y-dependent variable
-         x = df.iloc[:, :19].values
-         y = df.iloc[:, 19].values
+#        #saving the file in csv
+#    #https://www.youtube.com/watch?v=-0NwrcZOKhQ
+         df.to_csv('Preprocessed_data_two.csv',index=False)
+#         # implementing ANN
+#         # spliting data into x-independent and y-dependent variable
+#         x = df.iloc[:, :19].values
+#         y = df.iloc[:, 19].values
          return df,
 
-mydata=CSV_preprocessing("wf1.csv")
+mydata=CSV_preprocessing("wf2.csv")
 
+df = pd.read_csv("Preprocessed_data_two.csv")
